@@ -19,7 +19,7 @@ import java.sql.SQLException;
 public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
-		private String dbUrl = "jdbc:mysql://localhost:3306/SE_database";
+		private String dbUrl = "jdbc:mysql://localhost:3306/edc";
 		private String dbUname = "root";
 		private String dbPassword = ""; //lagay mo dito kung meron password db mo
 		private String dbDriver = "com.mysql.cj.jdbc.Driver";
@@ -33,10 +33,16 @@ public class SignUpServlet extends HttpServlet {
 	   		String role = request.getParameter("role");
 	   		String username = request.getParameter("uname");
 	   		String password = request.getParameter("upwd");
-	   		PreparedStatement ps = con.prepareStatement("INSERT INTO SE_database.Admin(name, email, role, username, password) VALUES(?,?,?,?,?) ");
-	   		ps.setString(1, name);
-			ps.setString(2, email);
-			ps.setString(3, role);
+	   		
+	   		String EncEmail = AES.encrypt(email);
+	   		String EncName = AES.encrypt(name);
+	   		String EncRole = AES.encrypt(role);
+	   		
+	   		
+	   		PreparedStatement ps = con.prepareStatement("INSERT INTO edc.Admin(name, email, role, username, password) VALUES(?,?,?,?,?) ");
+	   		ps.setString(1, EncName);
+			ps.setString(2, EncEmail);
+			ps.setString(3, EncRole);
 			ps.setString(4, username);
 			ps.setString(5, password);
 			
@@ -44,7 +50,7 @@ public class SignUpServlet extends HttpServlet {
 			if(i > 0) {
 				request.setAttribute("status", "success");
 			}
-			RequestDispatcher rd = request.getRequestDispatcher("SignUp.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
 	   		
 		} catch (ClassNotFoundException e) {

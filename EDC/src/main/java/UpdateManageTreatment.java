@@ -14,9 +14,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 /**
- * Servlet implementation class forgotPassword
+ * Servlet implementation class UpdateManageTreatment
  */
-public class forgotPassword extends HttpServlet {
+public class UpdateManageTreatment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private String dbUrl = "jdbc:mysql://localhost:3306/edc";
@@ -27,26 +27,31 @@ public class forgotPassword extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
-		String newPassword = request.getParameter("password");
-		String confPassword = request.getParameter("confPassword");
+		
+		
+		String charged = request.getParameter("AmountCharged");
+		String paid = request.getParameter("AmountPaid");
+		String balance = request.getParameter("Balance");
 		RequestDispatcher dispatcher = null;
-		if (newPassword != null && confPassword != null && newPassword.equals(confPassword)) {
-
+		
 			try {
+				String id=request.getParameter("id");
+				String treatmentID=request.getParameter("treatmentID");
 				Class.forName(dbDriver);
 				Connection con = DriverManager.getConnection(dbUrl, dbUname,dbPassword);
-				PreparedStatement ps = con.prepareStatement("UPDATE edc.Admin set password = ? where email = ? ");
-				ps.setString(1, newPassword);
-				ps.setString(2, (String) session.getAttribute("email"));
+				PreparedStatement ps = con.prepareStatement("UPDATE edc.PxTreatmentRecord set amntCharged = ?, amntPaid = ?, balance = ? where TreatmentID = ? and Pxid = ? ");
+				ps.setString(1, charged);
+				ps.setString(2, paid);
+				ps.setString(3, balance);
+				ps.setString(4, treatmentID);
+				ps.setString(5, id);
 
 				int rowCount = ps.executeUpdate();
 				if (rowCount > 0) {
 					request.setAttribute("status", "resetSuccess");
-					dispatcher = request.getRequestDispatcher("login.jsp");
+					dispatcher = request.getRequestDispatcher("Search.jsp");
 				} else {
 					request.setAttribute("status", "resetFailed");
-					dispatcher = request.getRequestDispatcher("forgotPassword.jsp");
 				}
 				dispatcher.forward(request, response);
 			} catch (Exception e) {
@@ -55,4 +60,4 @@ public class forgotPassword extends HttpServlet {
 		}
 	}
 
-}
+

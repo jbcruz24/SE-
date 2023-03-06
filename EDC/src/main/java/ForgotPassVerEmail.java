@@ -34,7 +34,7 @@ import javax.mail.internet.MimeMessage;
 public class ForgotPassVerEmail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private String dbUrl = "jdbc:mysql://localhost:3306/SE_database";
+	private String dbUrl = "jdbc:mysql://localhost:3306/edc";
     private String dbUname = "root";
     private String dbPassword = "";
     private String dbDriver = "com.mysql.cj.jdbc.Driver";
@@ -48,7 +48,7 @@ public class ForgotPassVerEmail extends HttpServlet {
 			Class.forName(dbDriver);
 			Connection con = DriverManager.getConnection(dbUrl, dbUname,dbPassword);
 			String email = request.getParameter("email");
-			PreparedStatement ps = con.prepareStatement("SELECT email FROM SE_database.Admin WHERE email=?");
+			PreparedStatement ps = con.prepareStatement("SELECT email FROM edc.Admin WHERE email=?");
 			
 			ps.setString(1, email);
 			ResultSet rs = ps.executeQuery();
@@ -72,7 +72,7 @@ public class ForgotPassVerEmail extends HttpServlet {
 				props.put("mail.smtp.port", "465");
 				Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 					protected PasswordAuthentication getPasswordAuthentication() {
-						return new PasswordAuthentication("cjosh7960@gmail.com", "gqihywzoxmunzops");// Put your email
+						return new PasswordAuthentication("jto646952@gmail.com", "elmuujhgouztzrrd");// Put your email
 																										// id and
 																										// password here
 					}
