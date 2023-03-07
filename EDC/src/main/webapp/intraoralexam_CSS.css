@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+.box {
+			position: relative;
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			border: 1px solid black;
+			text-align: center;
+			font-size: 20px;
+			margin: 5px;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.box input {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 80%;
+			height: 80%;
+			border: none;
+			text-align: center;
+			font-size: 14px;
+			box-sizing: border-box;
+		}
+		.row {
+			text-align: center;
+		}
+		
+		.label {
+			display: inline-block;
+			width: 60px;
+			text-align: right;
+			margin-right: 10px;
+			font-size: 12px;
+		}
+		
+		.label2 {
+			display: inline-block;
+			width: 60px;
+			text-align: left;
+			margin-left: 10px;
+			font-size: 12px;
+		}
+		
+		.label-permanentteeth {
+			display: inline-block;
+			width: 60px;
+			text-align: center;
+			margin-left: 10px;
+			font-size: 12px;
+		}
+		
+		textarea {
+  			width: 20%;
+  			height: 150px;
+  			padding: 12px 20px;
+  			box-sizing: border-box;
+  			border: 2px solid #ccc;
+  			border-radius: 4px;
+ 			background-color: #f8f8f8;
+  			font-size: 16px;
+ 			bottom: 20px;
+			left: 20px;
+ 			position:fixed;
+ 			resize: none;
+ 			
+		}
+		 table {
+			border-collapse: collapse;
+			margin: auto;
+		}
+		
+		
+		th, td {
+			border: 1px solid black;
+			padding: 5px;
+			text-align: center;
+		}
+
+		th {
+			background-color: #eee;
+		}
+		
+		#save-btn {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			padding: 10px;
+			background-color: #996600;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		
