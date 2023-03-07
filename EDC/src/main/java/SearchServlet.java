@@ -171,7 +171,7 @@ public class SearchServlet extends HttpServlet {
 				out.print("<input type=\"hidden\" name=\"email\" value=" + rs.getString(9) + ">");
 				out.print("<input type=\"hidden\" name=\"occupation\" value=" + rs.getString(10) + ">");
 				out.print("<input type=\"hidden\" name=\"guardian\" value=" + rs.getString(11) + ">");
-				out.print("<td><br><input type=\"submit\" value=\"Archive\"></td>");
+				out.print("<td><br><input type=\"submit\" value=\"Archive Record\"></td>");
 				out.print("</tr>");
 				out.print("</form>");
 				
@@ -184,6 +184,12 @@ public class SearchServlet extends HttpServlet {
 				out.print("<form action=\"AddManageTreatment\" method=\"post\">");
 				out.print("<input type=\"hidden\" name=\"id\" value=" + rs.getInt(1) + ">");
 				out.print("<td><br><input type=\"submit\" value=\"New Treatment Record\"></td>");
+				out.print("</tr>");
+				out.print("</form>");	
+				
+				out.print("<form action=\"AccessIntraOral\" method=\"post\">");
+				out.print("<input type=\"hidden\" name=\"id\" value=" + rs.getInt(1) + ">");
+				out.print("<td><br><input type=\"submit\" value=\"Access IntraOral\"></td>");
 				out.print("</tr>");
 				out.print("</form>");	
 			}

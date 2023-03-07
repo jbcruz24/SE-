@@ -130,7 +130,7 @@ public class AccessIntraOral extends HttpServlet {
 				+ "	\n");
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/edc","root","Manong9909!");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/edc","root","");
 			
 		
 		

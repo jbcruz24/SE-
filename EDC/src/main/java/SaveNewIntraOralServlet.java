@@ -20,7 +20,7 @@ public class SaveNewIntraOralServlet extends HttpServlet {
    
 	private String dbUrl = "jdbc:mysql://localhost:3306/edc";
 	private String dbUname = "root";
-	private String dbPassword = "Manong9909!"; //lagay mo dito kung meron password db mo
+	private String dbPassword = ""; //lagay mo dito kung meron password db mo
 	private String dbDriver = "com.mysql.cj.jdbc.Driver";
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
