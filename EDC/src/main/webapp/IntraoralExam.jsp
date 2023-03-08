@@ -239,18 +239,5 @@
 	 <button id="save-btn" onclick="confirmSave()">Save Patient Record</button>
 
 </form>
-	
-	<script>
-		
-		function confirmSave() {
-			if (confirm("Do you want to save this patient record?")) {
-				// Save patient record logic goes here
-				alert("Patient record saved successfully!");
-			} else {
-				// Cancel action
-			}
-		}
-		
-	</script>
 </body>
 </html>
