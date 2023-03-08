@@ -142,7 +142,9 @@ public class AccessIntraOral extends HttpServlet {
 			
 			while(rs.next()) {
 				
-				out.print("	<div class=\"row\">\n"
+				out.print("<form action=\"UpdateOralServlet\" method=\"post\">\n"
+						+ "<input type=\"hidden\" name=\"id\" value="+rs.getInt(1)+">\n"
+						+ "<div class=\"row\">\n"
 						+ "	<div class=\"label\">STATUS</div>\n"
 						+ "		<div class=\"box\"><input type=\"text\" name=\"box1\" value="+rs.getString(2)+"></div>\n"
 						+ "		<div class=\"box\"><input type=\"text\" name=\"box2\" value="+rs.getString(3)+"></div>\n"
@@ -294,7 +296,7 @@ public class AccessIntraOral extends HttpServlet {
 						+ "		<div class=\"box\"><input type=\"text\" name=\"box99\" value="+rs.getString(100)+"></div>\n"
 						+ "		<div class=\"box\"><input type=\"text\" name=\"box100\" value="+rs.getString(101)+"></div>\n"
 						+ "		<div class=\"box\"><input type=\"text\" name=\"box101\" value="+rs.getString(102)+"></div>\n"
-						+ "		<div class=\"box\"><input type=\"text\" name=\"boX102\" value="+rs.getString(103)+"></div>\n"
+						+ "		<div class=\"box\"><input type=\"text\" name=\"box102\" value="+rs.getString(103)+"></div>\n"
 						+ "		<div class=\"box\"><input type=\"text\" name=\"box103\" value="+rs.getString(104)+"></div>\n"
 						+ "		<div class=\"box\"><input type=\"text\" name=\"box104\" value="+rs.getString(105)+"></div>\n"
 						+ "	<div class=\"label2\">LEFT</div>\n"
@@ -365,6 +367,9 @@ public class AccessIntraOral extends HttpServlet {
 						+ "	<div class=\"note\">\n"
 						+ "		<textarea name=\"note\" placeholder=\"enter your notes here\">"+rs.getString(106)+"</textarea>\n"
 						+ "	</div>\n"
+						+ "<button id=\"save-btn\" onclick=\"confirmSave()\">Save Patient Record</button>\n"
+						+ "\n"
+						+ "</form>"
 						+ "	\n"
 						+ "</body>\n"
 						+ "</html>");

@@ -82,6 +82,16 @@ public class SearchServlet extends HttpServlet {
 				+ "  border: 2px solid white;\n"
 				+ "  border-radius: 4px;\n"
 				+ "}"
+				+ "#save-btn {\n"
+				+ "			font-size: 1.2em;\n"
+				+ "  background-color: #996600;\n"
+				+ "  color: white;\n"
+				+ "  padding: 10px 20px;\n"
+				+ "  margin: 10px;\n"
+				+ "  border-radius: 5px;\n"
+				+ "  border: none;\n"
+				+ "  cursor: pointer;"
+				+ "		}"
 				+ "</style>"
 				+ "</head>");
 		out.print("<h1>Px Record</h1>");
@@ -171,25 +181,25 @@ public class SearchServlet extends HttpServlet {
 				out.print("<input type=\"hidden\" name=\"email\" value=" + rs.getString(9) + ">");
 				out.print("<input type=\"hidden\" name=\"occupation\" value=" + rs.getString(10) + ">");
 				out.print("<input type=\"hidden\" name=\"guardian\" value=" + rs.getString(11) + ">");
-				out.print("<td><br><input type=\"submit\" value=\"Archive Record\"></td>");
+				out.print("<button id=\"save-btn\" onclick=\"confirmSave()\">Archive Record</button>");
 				out.print("</tr>");
 				out.print("</form>");
 				
 				out.print("<form action=\"ManageTreatment\" method=\"post\">");
 				out.print("<input type=\"hidden\" name=\"id\" value=" + rs.getInt(1) + ">");
-				out.print("<td><br><input type=\"submit\" value=\"Manage Treatment Record\"></td>");
+				out.print("<button id=\"save-btn\" onclick=\"confirmSave()\">Manage Existing Treatment Record</button>");
 				out.print("</tr>");
 				out.print("</form>");
 				
 				out.print("<form action=\"AddManageTreatment\" method=\"post\">");
 				out.print("<input type=\"hidden\" name=\"id\" value=" + rs.getInt(1) + ">");
-				out.print("<td><br><input type=\"submit\" value=\"New Treatment Record\"></td>");
+				out.print("<button id=\"save-btn\" onclick=\"confirmSave()\">Add New Treatment Record</button>");
 				out.print("</tr>");
 				out.print("</form>");	
 				
 				out.print("<form action=\"AccessIntraOral\" method=\"post\">");
 				out.print("<input type=\"hidden\" name=\"id\" value=" + rs.getInt(1) + ">");
-				out.print("<td><br><input type=\"submit\" value=\"Access IntraOral\"></td>");
+				out.print("<button id=\"save-btn\" onclick=\"confirmSave()\">Access IntraOral</button>");
 				out.print("</tr>");
 				out.print("</form>");	
 			}
