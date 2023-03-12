@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  * Servlet implementation class UpdatePxServlet
@@ -65,7 +66,7 @@ public class UpdatePxServlet extends HttpServlet {
 				ps.setString(9, EncOccupation);
 				ps.setString(10, EncGuardian);
 				ps.setString(11, id);
-
+				
 				int rowCount = ps.executeUpdate();
 				if (rowCount > 0) {
 					request.setAttribute("status", "resetSuccess");

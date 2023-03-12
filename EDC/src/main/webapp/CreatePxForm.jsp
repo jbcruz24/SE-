@@ -28,6 +28,26 @@ function confirmDiscard() {
     window.location.href = "HOME_homepg.jsp";
   }
 }
+
+function valid(){
+	var stg1 = document.getElementById('last-name').value;
+	var stg2 = document.getElementById('first-name').value;
+	var stg3 = document.getElementById('middle-name').value;
+	var stg4 = document.getElementById('birthdate').value;
+	var stg5 = document.getElementById('gender').value;
+	var stg6 = document.getElementById('home-address').value;
+	var stg7 = document.getElementById('cellphone').value;
+	var stg8 = document.getElementById('email').value;
+	var stg9 = document.getElementById('occupation').value;
+	var stg10 = document.getElementById('guardian-name').value;
+	if(stg1!="" && stg2!="" && stg3!="" && stg4!="" && stg5!="" && stg6!="" && stg7!="" && stg8!="" && stg9!="" && stg10!=""){
+	return true;
+	}else{
+		alert("Please fill out all the field");
+	return false;
+	}
+	}
+
 </script>
 
 <form action="CreatePxFormServlet" method="post" class="patient-form">
@@ -35,11 +55,11 @@ function confirmDiscard() {
 
   <div class="form-section">
     <label for="last-name">Last Name:</label>
-    <input type="text" id="last-name" name="last-name">
+    <input type="text" id="last-name" name="last-name" required="required">
   </div>
   <div class="form-section">
     <label for="first-name">First Name:</label>
-    <input type="text" id="first-name" name="first-name">
+    <input type="text" id="first-name" name="first-name" required="required">
   </div>
   <div class="form-section">
     <label for="middle-name">Middle Name:</label>
@@ -47,12 +67,12 @@ function confirmDiscard() {
   </div>
   <div class="form-section">
     <label for="birthdate">Birthdate:</label>
-    <input type="date" id="birthdate" name="birthdate">
+    <input type="date" id="birthdate" name="birthdate" required="required">
 	
   </div>
   <div class="form-section gender-section">
   <label>Gender:</label>
-  <input type="radio" id="male" name="gender" value="male">
+  <input type="radio" id="male" name="gender" value="male" >
   <label for="male">Male</label>
   <input type="radio" id="female" name="gender" value="female">
   <label for="female">Female</label>
@@ -64,24 +84,24 @@ function confirmDiscard() {
   </div>
   <div class="form-section">
     <label for="cellphone">Cellphone #:</label>
-    <input type="text" id="cellphone" name="cellphone">
+    <input type="text" id="cellphone" name="cellphone" pattern="[0-9]+" title="please enter number only" required="required">
   </div>
   <div class="form-section">
     <label for="email">Email Address:</label>
-    <input type="email" id="email" name="email">
+    <input type="email" id="email" name="email" required="required">
   </div>
   <div class="form-section">
     <label for="occupation">Occupation:</label>
-    <input type="text" id="occupation" name="occupation">
+    <input type="text" id="occupation" name="occupation" required="required">
   </div>
   <div class="form-section">
     <label for="guardian-name">Parent/Guardian's Name:</label>
-    <input type="text" id="guardian-name" name="guardian-name">
+    <input type="text" id="guardian-name" name="guardian-name" >
   </div>
   
   
   
-  <input type="submit" value="Submit">
+  <input type="submit" value="Next (Medical History)" onclick="valid()">
   
   
 </form>

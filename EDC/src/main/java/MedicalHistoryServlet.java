@@ -85,7 +85,7 @@ public class MedicalHistoryServlet extends HttpServlet {
 			if(i > 0) {
 				request.setAttribute("status", "success");
 			}
-			RequestDispatcher rd = request.getRequestDispatcher("CreatePxForm.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("IntraoralExam.jsp");
 			rd.forward(request, response);
 	   		
 		} catch (ClassNotFoundException e) {

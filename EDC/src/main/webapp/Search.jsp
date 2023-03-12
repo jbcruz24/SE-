@@ -109,13 +109,13 @@ div.home{
 <div class="lastname">
    	 		<label>Last Name:</label>
    	 	</div>
-     	 	<input type="text" name="id" class="last">	
+     	 	<input type="text" name="id" class="last" required>	
     	
     	
     	<div class="firstname">
    	 		<label>First Name:</label>
    	 	</div>
-     	 	<input type="text" name="first" class="first">	
+     	 	<input type="text" name="first" class="first" required>	
      	 	
      	 <div class="submit">
     		<input type="submit" value="Search">

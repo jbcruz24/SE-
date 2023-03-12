@@ -29,7 +29,7 @@
    	 
    	 <div class="newPass">
    	 		<label>New Password</label>
-     	 	<input type="password" name="password" id="pass" class="p1">	
+     	 	<input type="password" name="password" id="pass" class="p1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>	
     	</div>
     	
     <div class="confPass">

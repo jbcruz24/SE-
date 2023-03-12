@@ -72,7 +72,26 @@ public class EditPxServlet extends HttpServlet {
 				+ "a:hover{"
 				+ "background: #d4af37;\r\n"
 				+ "	transition: 0.5s ease;}"
+				+ "input[type=\"submit\"] {\n"
+				+ "  background-color: #996600;\n"
+				+ "  color: white;\n"
+				+ "  padding: 14px 20px;\n"
+				+ "  border: none;\n"
+				+ "  border-radius: 5px;\n"
+				+ "  cursor: pointer;\n"
+				+ "  font-size: 16px;\n"
+				+ "  margin-top: 20px;\n"
+				+ "}\n"
+				+ "\n"
+				+ "input[type=\"submit\"]:hover {\n"
+				+ "  background-color: #996530;\n"
+				+ "}"
 				+ "</style>"
+				+ "<script type=\"text/javascript\">\n"
+				+ "function confirm() {\n"
+				+ "		alert(\"Patient record saved successfully!\");\n"
+				+ "}\n"
+				+ "</script>"
 				+ "</head>");
 		out.print("<h1>Px Record</h1>");
 		out.print("<table><tr><th>PX_ID</th><th>Last_Name</th><th>First_Name</th><th>Middle_Name</th><th>Birth_Date</th><th>Gender</th><th>Address</th><th>Cellphone Number</th><th>Email</th><th>Occupation</th><th>Guardian</th>");
@@ -141,7 +160,7 @@ public class EditPxServlet extends HttpServlet {
 				out.print("<td>");
 				out.print("<input type=\"text\" name=\"guardian\" value=" + DecGuardian + ">");
 				out.print("</td>");
-				out.print("<td colspan=\"2\"><br><input type=\"submit\" value=\"Update\"></td>");
+				out.print("<td colspan=\"2\"><br><input type=\"submit\" value=\"Update\" onclick=\"confirm()\"></td>");
 				out.print("</tr>");
 				out.print("</table>");
 				out.print("</form>");

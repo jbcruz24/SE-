@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -46,6 +48,13 @@ public class SearchServlet extends HttpServlet {
 				+ ""
 				+ "color: white;"
 				
+				+ "}"
+				+ "input[type=submit]{\n"
+				+ "  background-color: #996600;\n"
+				+ "  border: none;\n"
+				+ "  border-radius: 4px;\n"
+				+ "  color: white;	\n"
+				+ "  cursor: pointer;\n"
 				+ "}"
 				+ "table{\r\n"
 				+ "	border-collapse:collapse;\r\n"
@@ -92,10 +101,24 @@ public class SearchServlet extends HttpServlet {
 				+ "  border: none;\n"
 				+ "  cursor: pointer;"
 				+ "		}"
+				+ ".header{\n"
+				+ "  font-family: Arial, Helvetica, sans-serif;\n"
+				+ "  color: gold;\n"
+				+ "  font-size: 30px;\n"
+				+ "  left: 580px;\n"
+				+ "  top: 20px;\n"
+				+ "}"
 				+ "</style>"
+				+ "<script type=\"text/javascript\">\n"
+				+ "function confirmArchives() {\n"
+				+ "		alert(\"Patient Record Archived!\");\n"
+				+ "}\n"
+				+ "</script>"
+				+ "<h2 class=header align = center>Patient Record</h2>\n"
 				+ "</head>");
 		out.print("<h1>Px Record</h1>");
 		out.print("<table><tr><th>PX_ID</th><th>Last_Name</th><th>First_Name</th><th>Middle_Name</th><th>Birth_Date</th><th>Gender</th><th>Address</th><th>Cellphone Number</th><th>Email</th><th>Occupation</th><th>Guardian</th>");
+		
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -181,7 +204,7 @@ public class SearchServlet extends HttpServlet {
 				out.print("<input type=\"hidden\" name=\"email\" value=" + rs.getString(9) + ">");
 				out.print("<input type=\"hidden\" name=\"occupation\" value=" + rs.getString(10) + ">");
 				out.print("<input type=\"hidden\" name=\"guardian\" value=" + rs.getString(11) + ">");
-				out.print("<button id=\"save-btn\" onclick=\"confirmSave()\">Archive Record</button>");
+				out.print("<button id=\"save-btn\" onclick=\"confirmArchives()\">Archive Record</button>");
 				out.print("</tr>");
 				out.print("</form>");
 				
@@ -208,9 +231,9 @@ public class SearchServlet extends HttpServlet {
 			out.print("<a href = 'Search.jsp'>Back</a>");
 			out.print( "</body>"
 					+ "</html>");
-			
 		}catch(Exception p) {
 			System.out.println(p);
+			
 		}
 		
 		

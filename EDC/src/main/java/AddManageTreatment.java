@@ -47,7 +47,19 @@ public class AddManageTreatment extends HttpServlet {
 				+ "        background-color: #4CAF50;\n"
 				+ "        color: white;\n"
 				+ "      }\n"
+				+ "input[type=submit]{\n"
+				+ "  background-color: #996600;\n"
+				+ "  border: none;\n"
+				+ "  border-radius: 4px;\n"
+				+ "  color: white;	\n"
+				+ "  cursor: pointer;\n"
+				+ "}"
 				+ "    </style>\n"
+				+ "<script type=\"text/javascript\">\n"
+				+ "function confirm() {\n"
+				+ "		alert(\"Saved Successfully!\");\n"
+				+ "}\n"
+				+ "</script>"
 				+ "  </head>\n"
 				+ "  <body>\n"
 				+ "    <h2>User System Logs</h2>\n"
@@ -87,7 +99,7 @@ public class AddManageTreatment extends HttpServlet {
 				out.print("<td>");
 				out.print("<input type=\"text\" name=\"Balance\">");
 				out.print("</td>");
-				out.print("<td colspan=\"2\"><br><input type=\"submit\" value=\"Add\"></td>");
+				out.print("<td colspan=\"2\"><br><input type=\"submit\" value=\"Add\" onclick=\"confirm()\"></td>");
 				out.print("</tr>");
 				out.print("</table>");
 				out.print("<input type=\"hidden\" name=\"id\" value= "+ id +">");
@@ -96,7 +108,6 @@ public class AddManageTreatment extends HttpServlet {
 				
 		out.print("</table>");
 		out.print("<p><p>");
-		out.print("<a href = 'Search.jsp'>Cancel</a>");
 		out.print( "</body>"
 				+ "</html>");
 	}

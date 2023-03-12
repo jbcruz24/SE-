@@ -265,4 +265,44 @@
     <servlet-name>UpdateManageTreatment</servlet-name>
     <url-pattern>/UpdateManageTreatment</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SaveNewIntraOralServlet</display-name>
+    <servlet-name>SaveNewIntraOralServlet</servlet-name>
+    <servlet-class>SaveNewIntraOralServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SaveNewIntraOralServlet</servlet-name>
+    <url-pattern>/SaveNewIntraOralServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AccessIntraOral</display-name>
+    <servlet-name>AccessIntraOral</servlet-name>
+    <servlet-class>AccessIntraOral</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccessIntraOral</servlet-name>
+    <url-pattern>/AccessIntraOral</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateIntraOralServlet</display-name>
+    <servlet-name>UpdateIntraOralServlet</servlet-name>
+    <servlet-class>UpdateIntraOralServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateIntraOralServlet</servlet-name>
+    <url-pattern>/UpdateIntraOralServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AllArchive</display-name>
+    <servlet-name>AllArchive</servlet-name>
+    <servlet-class>AllArchive</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllArchive</servlet-name>
+    <url-pattern>/AllArchive</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -53,6 +53,11 @@ public class EditManageTreatment extends HttpServlet {
 				+ "  border: 2px solid white;\n"
 				+ "}"
 				+ "    </style>\n"
+				+ "<script type=\"text/javascript\">\n"
+				+ "function confirm() {\n"
+				+ "		alert(\"Patient record Saved Successfully!\");\n"
+				+ "}\n"
+				+ "</script>"
 				+ "  </head>\n"
 				+ "  <body>\n"
 				+ "    <h2>Treatment Record</h2>\n"
@@ -103,7 +108,7 @@ public class EditManageTreatment extends HttpServlet {
 				out.print("<td>");
 				out.print("<input type=\"text\" name=\"Balance\" value=" + rs.getString(9) + ">");
 				out.print("</td>");
-				out.print("<td colspan=\"2\"><br><input type=\"submit\" value=\"Update\"></td>");
+				out.print("<td colspan=\"2\"><br><input type=\"submit\" value=\"Update\" onclick=\"confirm()\"></td>");
 				out.print("</tr>");
 				//out.print("</table>");
 				out.print("</form>");

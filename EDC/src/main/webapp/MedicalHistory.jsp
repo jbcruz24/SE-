@@ -41,7 +41,7 @@ onclick="confirmDiscard()">Back</button>
 			margin-bottom: 1em;
 			font-weight: bold;
 		}
-		input[type="text"], input[type="submit"] {
+		input[type="text"]{
 			width: 60%;
 			padding: 0.5em;
 			margin-bottom: 1em;
@@ -49,10 +49,19 @@ onclick="confirmDiscard()">Back</button>
 			border: 1px solid gray;
 		}
 		input[type="submit"] {
-			width: auto;
-			background-color: lightgray;
-			cursor: pointer;
-		}
+  background-color: #996600;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #996530;
+}
 	</style>
 	<h1>Medical History</h1>
 	<form action="MedicalHistoryServlet" method="post">
@@ -322,7 +331,7 @@ onclick="confirmDiscard()">Back</button>
 <br>
 
 </div>
-		<input type="submit" value="Submit">
+		<input type="submit" value="Next (Intraoral Examination)">
 	</form>
 	
 	<script>

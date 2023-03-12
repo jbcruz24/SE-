@@ -41,7 +41,7 @@ div.form{
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
   bottom: 5px;
-  left: 600px;
+  left: 400px;
   font-size: 15px;
   
 }
@@ -50,20 +50,20 @@ div.form{
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
   top: 15px;
-  left: 600px;
+  left: 400px;
   font-size: 15px;
 }
 
 .last{
 	height: 20px;
 	border: 2px solid #996600;
-	margin-left: 600px;
+	margin-left: 400px;
 }
 
 .first{
 	height: 20px;
 	border: 2px solid #996600;
-	margin-left: 600px;
+	margin-left: 400px;
 	margin-top: 20px;
 }
 
@@ -74,7 +74,7 @@ input[type=submit]{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   color: white;	
   padding: 10px 25px;
-  margin: 60px 650px;
+  margin: 60px 450px;
   cursor: pointer;
 }
 
@@ -85,6 +85,26 @@ div.home{
   left: 50px;
   font-size: 25px;
 }
+
+#archive{
+	position:relative;
+	font-size: 15px;
+	background-color: #996600;
+	color: white;
+	padding: 10px 20px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	margin-left: 778px;
+	bottom:250px;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+}
+#or{
+position:relative;
+margin-left: 685px;
+top:90px;
+}
+	
 
 
 </style>
@@ -103,7 +123,7 @@ div.home{
     <div class="header1">	
     	<p>Search Archive Record</p>
 	</div>
-
+<h6 id="or">or</h6>
 <form action="SearchArchiveServlet" method="post">
 
 <div class="lastname">
@@ -125,6 +145,14 @@ div.home{
 			<a href="HOME_homepg.jsp">Back to Homepage</a>
 		</div>
 		
+</form>
+
+
+
+<form action="allArchive" method="post">
+
+    	<button id="archive">Generate All Archived Record</button>
+   
 </form>
 </div>
 </body>

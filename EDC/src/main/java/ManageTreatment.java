@@ -45,16 +45,30 @@ public class ManageTreatment extends HttpServlet {
 				+ "        padding-top: 12px;\n"
 				+ "        padding-bottom: 12px;\n"
 				+ "        text-align: left;\n"
-				+ "        background-color: #4CAF50;\n"
+				+ "        background-color: #996600;\n"
 				+ "        color: white;\n"
 				+ "      }\n"
 				+ "input[type=text] {\n"
 				+ "  border: 2px solid white;\n"
 				+ "}"
+				+ ".header{\n"
+				+ "  font-family: Arial, Helvetica, sans-serif;\n"
+				+ "  color: gold;\n"
+				+ "  font-size: 30px;\n"
+				+ "  left: 580px;\n"
+				+ "  bottom: 20px;\n"
+				+ "}"
+				+ "input[type=submit]{\n"
+				+ "  background-color: #996600;\n"
+				+ "  border: none;\n"
+				+ "  border-radius: 4px;\n"
+				+ "  color: white;	\n"
+				+ "  cursor: pointer;\n"
+				+ "}"
 				+ "    </style>\n"
 				+ "  </head>\n"
 				+ "  <body>\n"
-				+ "    <h2>Treatment Record</h2>\n"
+				+ "    <h2 class=header align = center>Treatment Record</h2>\n"
 				+ "    <table id=\"logTable\">\n"
 				+ "      <tr>\n"
 				+ "        <th>Date</th>\n"
@@ -109,7 +123,12 @@ public class ManageTreatment extends HttpServlet {
 				//out.print("</table>");
 				out.print("</form>");
 				
-				
+				out.print("</table>");
+				out.print("<form action=\"AddManageTreatment\" method=\"post\">");
+				out.print("<input type=\"hidden\" name=\"id\" value=" + request.getAttribute("PxID") + ">");
+				out.print("<td><br><input type=\"submit\" value=\"Add Treatment Record\"></td>");
+				out.print("</tr>");
+				out.print("</form>");	
 				
 			}
 			
@@ -120,12 +139,7 @@ public class ManageTreatment extends HttpServlet {
 
 		
 		
-		out.print("</table>");
-		out.print("<form action=\"AddManageTreatment\" method=\"post\">");
-		out.print("<input type=\"hidden\" name=\"id\" value=" + request.getAttribute("PxID") + ">");
-		out.print("<td><br><input type=\"submit\" value=\"Add Treatment Record\"></td>");
-		out.print("</tr>");
-		out.print("</form>");	
+		
 		out.print("<p><p>");
 		//out.print("<a href = 'Search.jsp'></a>");
 		out.print( "</body>"

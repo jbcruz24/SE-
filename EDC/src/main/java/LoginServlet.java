@@ -26,18 +26,23 @@ public class LoginServlet extends HttpServlet {
        
 	 	private String dbUrl = "jdbc:mysql://localhost:3306/edc";
 	    private String dbUname = "root";
-	    private String dbPassword = ""; //lagay mo dito kung meron password db mo
+	   // private String dbPassword = "Manong9909!"; //lagay mo dito kung meron password db mo
 	    private String dbDriver = "com.mysql.cj.jdbc.Driver";
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String username = request.getParameter("uname");
+		String password = request.getParameter("upwd");
+		HttpSession session = request.getSession();
+		String dbPassword = password;
+		session.setAttribute("pass", dbPassword);
+		
 		try {
 			java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
 			PrintWriter out = response.getWriter();
 			Class.forName(dbDriver);
 			Connection con = DriverManager.getConnection(dbUrl, dbUname,dbPassword);
-			String username = request.getParameter("uname");
-			String password = request.getParameter("upwd");
+			
 		
 			
 			PreparedStatement ps = con.prepareStatement("SELECT * FROM edc.Admin WHERE username=? and password=?");
@@ -59,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 				
 				
 				//this get the adminID in the database
-				HttpSession session = request.getSession();
+				
 				int adminID = rs.getInt(1);
 				String role = rs.getString("role");
 				session.setAttribute("AdminID", adminID);

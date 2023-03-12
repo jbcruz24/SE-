@@ -44,13 +44,29 @@ public class SystemLogsServlet extends HttpServlet {
 				+ "        padding-top: 12px;\n"
 				+ "        padding-bottom: 12px;\n"
 				+ "        text-align: left;\n"
-				+ "        background-color: #4CAF50;\n"
+				+ "        background-color: #996600;\n"
 				+ "        color: white;\n"
 				+ "      }\n"
 				+ "    </style>\n"
 				+ "  </head>\n"
 				+ "  <body>\n"
-				+ "  <a href=\"HOME_homepg.jsp\" class=\"back-button\">Back</a>");
+				+ "  <div class=\"back-button\">\n"
+				+ "<button style=\"margin-left: 10px; margin-bottom: 10px; \n"
+				+ "background-color: #996600;\n"
+				+ "border-radius: 5px;\n"
+				+ "width: 150px;\n"
+				+ "font-size: 20px;\n"
+				+ "padding: 10px 20px;\n"
+				+ "cursor: pointer;\n"
+				+ "\"\n"
+				+ "\n"
+				+ "onclick=\"confirmDiscard()\">Back</button>\n"
+				+ "</div>\n"
+				+ "<script>\n"
+				+ "function confirmDiscard() {\n"
+				+ "    window.location.href = \"HOME_homepg.jsp\";\n"
+				+ "}\n"
+				+ "</script>");
 		out.print(" <h2>User System Logs</h2>\n"
 				+ "    <table id=\"logTable\"> <tr>\n"
 				+ "        <th>LogsID</th>\n"
@@ -66,7 +82,7 @@ public class SystemLogsServlet extends HttpServlet {
 			
 		
 		
-			PreparedStatement ps = con.prepareStatement("SELECT SystemLogs.logsID, SystemLogs.AdminID, SystemLogs.role, SystemLogs.login FROM edc.SystemLogs, edc.Admin WHERE SystemLogs.AdminID = Admin.adminID");
+			PreparedStatement ps = con.prepareStatement("SELECT SystemLogs.logsID, SystemLogs.AdminID, SystemLogs.role, SystemLogs.login FROM edc.SystemLogs, edc.Admin");
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				out.print("<tr><td>");
@@ -81,7 +97,6 @@ public class SystemLogsServlet extends HttpServlet {
 				out.print("<td>");
 				out.print(rs.getTimestamp(4));
 				out.print("</td>");
-				out.print("<td>");
 				out.print("</tr>");
 			}
 		

@@ -125,6 +125,11 @@ public class AccessIntraOral extends HttpServlet {
 				+ "		}\n"
 				+ "		\n"
 				+ "</style>\n"
+				+ "<script type=\"text/javascript\">\n"
+				+ "function confirm() {\n"
+				+ "		alert(\"Saved Successfully!\");\n"
+				+ "}\n"
+				+ "</script>"
 				+ "<body>\n"
 				+ "	<h1 align=\"center\">Intraoral Examination</h1> <!--FIRST ROW-->\n"
 				+ "	\n");
@@ -367,7 +372,7 @@ public class AccessIntraOral extends HttpServlet {
 						+ "	<div class=\"note\">\n"
 						+ "		<textarea name=\"note\" placeholder=\"enter your notes here\">"+rs.getString(106)+"</textarea>\n"
 						+ "	</div>\n"
-						+ "<button id=\"save-btn\" onclick=\"confirmSave()\">Save Patient Record</button>\n"
+						+ "<button id=\"save-btn\" onclick=\"confirm()\">Save Patient Record</button>\n"
 						+ "\n"
 						+ "</form>"
 						+ "	\n"
@@ -385,8 +390,7 @@ public class AccessIntraOral extends HttpServlet {
 		//add manage treatment record
 		
 		out.print("</table>");
-		out.print("<p><p>");
-		out.print("<a href = 'Search.jsp'>Back to Searching</a>");
+		
 		out.print( "</body>"
 				+ "</html>");
 	

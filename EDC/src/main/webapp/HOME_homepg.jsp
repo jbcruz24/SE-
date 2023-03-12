@@ -49,10 +49,6 @@ document.getElementById("access-archive-btn").addEventListener("click", function
 document.getElementById("access-logs-btn").addEventListener("click", function(){
   window.location.href = "SystemLogs.jsp";
 });
-
-document.getElementById("log-out").addEventListener("click", function(){
-  window.location.href = "login.jsp";
-});
 </script>
 
 </body>

@@ -236,8 +236,13 @@
 		<textarea name="note" placeholder="enter your notes here"></textarea>
 	</div>
 	
-	 <button id="save-btn" onclick="confirmSave()">Save Patient Record</button>
+	 <button id="save-btn" onclick="Save()">Save Patient Record</button>
 
 </form>
+<script type="text/javascript">
+function Save() {
+		alert("Patient record saved successfully!");
+}
+</script>
 </body>
 </html>

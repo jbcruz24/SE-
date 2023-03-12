@@ -31,22 +31,20 @@ public class SignUpServlet extends HttpServlet {
    		String username = request.getParameter("uname");
    		String password = request.getParameter("upwd");
 		
-		if(email != "" && name != "" && role != "" && username != "" && password != "") {
+		
 		try {
 			Class.forName(dbDriver);
 			Connection con = DriverManager.getConnection(dbUrl, dbUname,dbPassword);
 			
 	   		
 	   		
-	   		String EncEmail = AES.encrypt(email);
-	   		String EncName = AES.encrypt(name);
-	   		String EncRole = AES.encrypt(role);
+	   		
 	   		
 	   		
 	   		PreparedStatement ps = con.prepareStatement("INSERT INTO edc.Admin(name, email, role, username, password) VALUES(?,?,?,?,?) ");
-	   		ps.setString(1, EncName);
-			ps.setString(2, EncEmail);
-			ps.setString(3, EncRole);
+	   		ps.setString(1, name);
+			ps.setString(2, email);
+			ps.setString(3, role);
 			ps.setString(4, username);
 			ps.setString(5, password);
 			
@@ -64,10 +62,7 @@ public class SignUpServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		}else{
-			response.sendRedirect("SignUp.jsp");
-			
-		}
+		
 	}
 
 }

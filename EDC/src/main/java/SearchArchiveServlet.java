@@ -20,7 +20,7 @@ public class SearchArchiveServlet extends HttpServlet {
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
-		String LN=request.getParameter("id");
+		String LN=request.getParameter("last");
 		String FN=request.getParameter("first");
 		
 		out.print("<html>\r\n"
@@ -48,7 +48,7 @@ public class SearchArchiveServlet extends HttpServlet {
 				+ "}\r\n"
 				+ "\r\n"
 				+ "th{"
-				+ "background-color: goldenrod;}"
+				+ "background-color: #996600;}"
 				+ "th, tr, td {\r\n"
 				+ "border: 1px solid #ddd;\r\n"
 				+ "  padding: 8px;}"
@@ -77,7 +77,29 @@ public class SearchArchiveServlet extends HttpServlet {
 				+ "  border: 2px solid white;\n"
 				+ "  border-radius: 4px;\n"
 				+ "}"
+				+ "input[type=\"submit\"] {\n"
+				+ "  background-color: #996600;\n"
+				+ "  color: white;\n"
+				+ "  padding: 14px 20px;\n"
+				+ "  border: none;\n"
+				+ "  border-radius: 5px;\n"
+				+ "  cursor: pointer;\n"
+				+ "  font-size: 16px;\n"
+				+ "  margin-top: 20px;\n"
+				+ "}\n"
+				+ "\n"
+				+ "input[type=\"submit\"]:hover {\n"
+				+ "  background-color: #996530;\n"
+				+ "}"
 				+ "</style>"
+				+ "<script type=\"text/javascript\">\n"
+				+ "function restore() {\n"
+				+ "		alert(\"Patient Record Restored!\");\n"
+				+ "}\n"
+				+ "function delete() {\n"
+				+ "		alert(\"Patient Record Deleted!\");\n"
+				+ "}\n"
+				+ "</script>"
 				+ "</head>");
 		out.print("<h1>Px Record</h1>");
 		out.print("<table><tr><th>archID</th><th>adminID</th><th>PXID</th><th>Last_Name</th><th>First_Name</th><th>Middle_Name</th><th>Birth_Date</th><th>Gender</th><th>Address</th><th>Cellphone Number</th><th>Email</th><th>Occupation</th><th>Guardian</th><th>timeCreated</th>");
@@ -158,11 +180,12 @@ public class SearchArchiveServlet extends HttpServlet {
 				out.print("</td>");
 				
 				//out.print("</tr>");
-				out.print("<td><br><input type=\"submit\" value=\"Restore\"></td>");
+				out.print("<td><br><input type=\"submit\" value=\"Restore\" onclick=\"restore()\"></td>");
 
 				//out.print(rs.getString(6));
 				//out.print("</td>");
 				out.print("</form>");
+				out.print("</table>");
 				
 				out.print("<form action=\"DeletePxArchiveServlet\" method=\"post\">");
 				out.print("<tr><td>");
@@ -173,7 +196,7 @@ public class SearchArchiveServlet extends HttpServlet {
 				out.print("</td>");
 				
 				//out.print("</tr>");
-				out.print("<td><br><input type=\"submit\" value=\"Delete\"></td>");
+				out.print("<td><br><input type=\"submit\" value=\"Delete\" onclick=\"delete()\"></td>");
 				out.print("</tr>");
 				//out.print(rs.getString(6));
 				//out.print("</td>");
@@ -183,7 +206,7 @@ public class SearchArchiveServlet extends HttpServlet {
 				
 				
 				System.out.println(LN);
-				out.print("</table>");
+				
 				
 				out.print("<p><p>");
 				out.print("<a href = 'SearchArchive.jsp'>Back</a>");

@@ -16,19 +16,7 @@ public class LogoutServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().invalidate();
 		
-		String requestURL = request.getHeader("referer");
-		String requestFileNameReversed = "";
-		for(int i=requestURL.length()-1; requestURL.charAt(i) != '/'; i--) {
-			requestFileNameReversed += requestURL.charAt(i);
-		}
+		response.sendRedirect("login.jsp");
 		
-		String requestFileName = "";
-		for(int i=requestFileNameReversed.length()-1; i>=0; i--) {
-			requestFileName += requestFileNameReversed.charAt(i);
-		}
-		
-		if(requestFileName.equals("HOME_homepg.jsp")) {
-			response.sendRedirect("login.jsp");
-		} 
 	}
 }

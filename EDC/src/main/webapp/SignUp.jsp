@@ -15,13 +15,15 @@ var stg3 = document.getElementById('box3').value;
 var stg4 = document.getElementById('box4').value;
 var stg5 = document.getElementById('box5').value;
 if(stg1!="" && stg2!="" && stg3!="" && stg4!="" && stg5!=""){
-	alert("validated");
 return true;
 }else{
-	alert("invalid");
+	alert("Please fill out all the field");
 return false;
 }
 }
+
+
+
 
 </script>
 
@@ -59,7 +61,7 @@ return false;
     	<div class="password">
    	 		<label>Password</label>
    	 	</div>
-     	 	<input type="password" name="upwd" id="box5" class="user5" placeholder="Password">
+     	 	<input type="password" name="upwd" id="box5" class="user5" placeholder="Password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
      	 	
      	<div class="submit">
     		<input type="submit" value="Sign Up" onclick="valid()">
